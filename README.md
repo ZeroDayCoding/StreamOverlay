@@ -16,6 +16,6 @@ The minimum viable product for this project will need to include a few things:
 5. A simple yet cross-platform UI design that can be easily implemented into any OS, may use a library for this but should aim for simplicity.
 
 ## Current Tasks:
-    [ ]  Setup Environment
-    [ ]  Basic Project Layout + Makefile
+    [*]  Setup Environment
+    [*]  Basic Project Layout + Makefile
     [ ]  Basic Interface System

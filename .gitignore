@@ -34,3 +34,4 @@
 # Project Structure
 build/
 deps
+.vscode/

@@ -1,3 +1,4 @@
+#include "platform.h"
 #include <iostream>
 
 extern "C" void test() {
@@ -6,4 +7,6 @@ extern "C" void test() {
     #else
         std::cout << "Hello from test using release mode!" << std::endl;
     #endif
+    __COMPILE_LINE_FOR_LINUX(std::cout << "Using Linux!" << std::endl);
+    __COMPILE_LINE_FOR_WINDOWS(std::cout << "Using Windows!" << std::endl);
 }
