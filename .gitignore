@@ -33,5 +33,5 @@
 
 # Project Structure
 build/
-deps
+deps/
 .vscode/
