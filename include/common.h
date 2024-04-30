@@ -1,6 +1,7 @@
 #ifndef __COMMON_H__
 #define __COMMON_H__
 #include "platform.h"
+#include <errno.h>
 
 // Define a macro for our extern "C" guard.
 #ifdef __cplusplus
@@ -19,6 +20,7 @@
 __NAMESPACE_GUARD_BEGIN(StreamOverlay)
 __EXTERN_C_GUARD_BEGIN
 
+typedef char        bool_t;
 typedef char        s8_t;
 typedef short       s16_t;
 typedef int         s32_t;
