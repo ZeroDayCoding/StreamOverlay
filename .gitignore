@@ -35,3 +35,4 @@
 build/
 deps/
 .vscode/
+docs/doxygen

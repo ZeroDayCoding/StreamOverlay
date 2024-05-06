@@ -2,6 +2,7 @@
 #define __COMMON_H__
 #include "platform.h"
 #include <errno.h>
+#include <stddef.h>
 
 // Define a macro for our extern "C" guard.
 #ifdef __cplusplus
@@ -16,7 +17,7 @@
 #define __NAMESPACE_GUARD_END
 #endif
 
-// Define our typedef 
+__NAMESPACE_GUARD_BEGIN(ZDC)
 __NAMESPACE_GUARD_BEGIN(StreamOverlay)
 __EXTERN_C_GUARD_BEGIN
 
@@ -33,8 +34,11 @@ typedef unsigned int         u32_t;
 typedef unsigned long        ul32_t;
 typedef unsigned long long   u64_t;
 
+typedef ::size_t size_t;
+
 typedef void* vptr_t;
 
 __EXTERN_C_GUARD_END
+__NAMESPACE_GUARD_END
 __NAMESPACE_GUARD_END
 #endif//__COMMON_H__ GUARD

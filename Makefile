@@ -1,5 +1,5 @@
-# StreamOverlay Makefile Usage: make [usage/build/run/clean/fresh-build/fresh-run]
-.PHONY: usage build run clean fresh-build fresh-run
+# StreamOverlay Makefile Usage: make [usage/build/run/clean/fresh-build/fresh-run/docs-gen]
+.PHONY: usage build run clean fresh-build fresh-run docs-gen
 
 # Utility Programs
 P_ECHO?=echo
@@ -12,6 +12,12 @@ P_MV?=mv -f
 P_CC?=gcc
 P_CPP?=g++
 P_LD?=g++
+
+# Doxygen Generation
+_USE_DOXYGEN?=true
+P_DOXYGEN?=~/doxygen-1.10.0/bin/doxygen
+P_PYTHON3?=python3
+P_BROWSER?=
 
 # Dependancy Programs
 _DEPS_USEDEPS?=true
@@ -103,6 +109,20 @@ clean:
 fresh-build: clean build
 
 fresh-run: clean run
+
+docs-gen:
+ifeq ($(_USE_DOXYGEN),true)
+	@$(P_DOXYGEN) ./doxygen.cfg
+ifneq ($(_WEBBROWSER),false)
+ifeq ($(P_BROWSER),)
+	@$(P_PYTHON3) -m webbrowser "./docs/doxygen/html/index.html"
+else
+	@$(P_BROWSER) "./docs/doxygen/html/index.html"
+endif
+endif
+else
+	@$(P_ECHO) "Doxygen is not enabled, cannot generate documentation."
+endif
 
 # Makefile Commands (INTERNAL DON'T CALL USING MAKE)
 $(DIR_BUILD)/$(DIR_BUILD_INFIX)/$(TARGET): $(OBJ_ALL)
